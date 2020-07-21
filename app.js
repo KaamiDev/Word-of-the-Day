@@ -1,6 +1,6 @@
 require('dotenv').config();
-const getWord = require('./getWord.js');
-const getImage = require('./getImage.js');
+const getWord = require('./controllers/getWord.js');
+const getImage = require('./controllers/getImage.js');
 
 const makeTweet = async () => {
 	let word = await getWord();
