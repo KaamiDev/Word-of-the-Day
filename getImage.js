@@ -29,12 +29,15 @@ const createImageHTML = (word) => {
 		'November',
 		'December'
 	];
+
+	let days = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
+
 	definitionsArr = word.results.slice(0, 3).map((definition) => {
 		return `<li><p><span>[<em>${definition.partOfSpeech}</em>]:</span> ${definition.definition}</p></li>`;
 	});
 	return {
 		html: `<div class="container">
-        <h3><strong>WORD OF THE DAY - </strong>${date.getDay()}, ${months[
+        <h3><strong>WORD OF THE DAY - </strong>${days[date.getDay()]}, ${months[
 			date.getMonth()
 		]} ${date.getDate()}, ${date.getFullYear()}</h3>
         <h1>${word.word}</h1>
