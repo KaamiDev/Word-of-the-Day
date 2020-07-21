@@ -24,7 +24,16 @@ const postTweet = (word, image) => {
 
 				// the tweet is then posted and logged accordingly to the console
 				T.post('statuses/update', params, function(err, data, response) {
-					console.log('Tweeted Successfully! The word was ' + word);
+					let date = new Date();
+					console.log(
+						'Tweeted Successfully at ' +
+							date.toLocaleDateString() +
+							' ' +
+							date.toLocaleTimeString() +
+							'! The word was "' +
+							word +
+							'".'
+					);
 				});
 			}
 		});
