@@ -10,14 +10,23 @@ const getWord = async () => {
 	};
 
 	let word;
-	try {
-		let body = await rp.get(
-			`https://wordsapiv1.p.rapidapi.com/words/?letterPattern=[^\\s-]&lettersMin=3&lettersMax=15&hasDetails=definitions&random=true`,
-			options
-		);
-		return JSON.parse(body);
-	} catch (err) {
-		console.log(err);
+	while (true) {
+		try {
+			let word = JSON.parse(
+				await rp.get(
+					`https://wordsapiv1.p.rapidapi.com/words/?lettersMin=3&lettersMax=15&hasDetails=definitions&random=true`,
+					options
+				)
+			);
+			if (word.word.indexOf(' ') >= 0 || word.syllables === undefined) {
+				continue;
+			} else {
+				return word;
+			}
+		} catch (err) {
+			console.log(err);
+			break;
+		}
 	}
 };
 
