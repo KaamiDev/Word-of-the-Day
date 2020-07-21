@@ -13,4 +13,4 @@
 
 Once finished, this twitter bot will be located on the twitter handle `@wordoftheday_bot`. If you are interested in expanding your vocabulary every day by doing nothing more than just browsing twitter, consider giving it a follow.
 
-![Example Image](https://pbs.twimg.com/media/EdZ8mZIXsAEsAj3?format=png&name=4096x4096)
+![Example Image](https://i.imgur.com/ekta7a0.png)
