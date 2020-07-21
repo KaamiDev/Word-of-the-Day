@@ -7,7 +7,7 @@
 1. This generated information is then substituted into HTML template layouting a clean and minimalistic social media card.
 1. This HTML card is then rendered into a PNG image via the https://htmlcsstoimage.com/ api.
 1. That image is then tweeted via the Twitter API.
-1. A cron job is setup to complete this process once everyday at noon.
+1. A cron job is setup to complete this process once everyday at 12PM (EDT).
 
 #### Note: This bot is still being worked on, it is not yet functional.
 
