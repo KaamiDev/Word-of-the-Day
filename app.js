@@ -1,6 +1,7 @@
 const getWord = require('./getWord.js');
 
 const makeTweet = async () => {
-	console.log(getWord());
+	let word = await getWord();
+	console.log(word);
 };
 makeTweet();
