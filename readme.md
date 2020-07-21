@@ -2,6 +2,9 @@
 
 ### A twitter bot that tweets words along with their definition(s) everyday in the form of a beautiful looking image card.
 
+![Header Image](https://imgur.com/WbqlY2r.png)
+
+
 #### How it works
 1. A word and it's definition are randomly generated through the https://www.wordsapi.com/ api.
 1. This generated information is then substituted into HTML template layouting a clean and minimalistic social media card.
