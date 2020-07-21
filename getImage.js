@@ -32,7 +32,19 @@ const createImageHTML = (word) => {
 
 	let days = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
 
-	definitionsArr = word.results.slice(0, 3).map((definition) => {
+	definitionsArr = word.results.slice(0, 3);
+
+	if (definitionsArr.length >= 2) {
+		if ((definitionsArr[0].definition + definitionsArr[1].definition).length > 205) {
+			definitionsArr = definitionsArr.slice(0, 1);
+		}
+	}
+	if (definitionsArr.length >= 3) {
+		if ((definitionsArr[0].definition + definitionsArr[1].definition + definitionsArr[2].definition).length > 205) {
+			definitionsArr = definitionsArr.slice(0, 2);
+		}
+	}
+	definitionsArrToDisplay = definitionsArr.map((definition) => {
 		return `<li><p><span>[<em>${definition.partOfSpeech}</em>]:</span> ${definition.definition}</p></li>`;
 	});
 	return {
@@ -44,7 +56,7 @@ const createImageHTML = (word) => {
         <h4>[ ${word.syllables.list.join('-')} ]</h4>
         <h5>DEFINITION(s):</h5>
         <ol>
-            ${definitionsArr.join('')}
+            ${definitionsArrToDisplay.join('')}
         </ol>
     </div>`,
 		css: `@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,600&display=swap');
