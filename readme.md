@@ -9,8 +9,9 @@
 1. That image is then tweeted via the Twitter API.
 1. A cron job is setup to complete this process once everyday at 12PM (EDT).
 
-#### Note: This bot is still being worked on, it is not yet functional.
+#### Note: Rate limits include 50 images renders a month and 1500 word generations a day on the free plan(s) for their respective API's.
 
-Once finished, this twitter bot will be located on the twitter handle `@wordoftheday_bot`. If you are interested in expanding your vocabulary every day by doing nothing more than just browsing twitter, consider giving it a follow.
+This twitter bot is located on the twitter handle `@word_of_day_`. If you are interested in expanding your vocabulary every day by doing nothing more than just browsing twitter, consider giving it a follow.
 
 ![Example Image](https://i.imgur.com/ekta7a0.png)
+![Example Image Two](https://i.imgur.com/HJZKT94.png)
