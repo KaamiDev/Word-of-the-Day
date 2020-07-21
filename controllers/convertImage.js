@@ -1,4 +1,4 @@
-const request = require('request');
+const request = require('request').defaults({ encoding: null });
 
 const convertImage = async (image) => {
 	// returns promise
