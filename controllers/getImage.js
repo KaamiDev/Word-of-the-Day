@@ -1,21 +1,28 @@
 var rp = require('request-promise');
 
 const getImage = async (word) => {
+	// creates image template with word info and destructures html and css
 	let { html, css } = createImageHTML(word);
 
+	// defines data to be sent to api for conversion
 	let data = {
 		html,
 		css
 	};
 
+	// sends data to api to convert into png image
 	let image = await rp
 		.post({ url: 'https://hcti.io/v1/image', form: data })
 		.auth(process.env.API_ID, process.env.API_KEY);
+	// returns url of that image
 	return JSON.parse(image).url;
 };
 
 const createImageHTML = (word) => {
+	// defines date variable for image
 	let date = new Date();
+
+	// defines month array for image
 	let months = [
 		'January',
 		'February',
@@ -30,11 +37,16 @@ const createImageHTML = (word) => {
 		'December'
 	];
 
+	// defines days array for image
 	let days = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
+
+	// defines colors array corresponding to different days for image
 	let colors = [ '#00A8FF', '#0D48D2', '#D20D69', '#3BD20D', '#FFA200', '#DD1BD7', '#882AE6' ];
 
+	// only returns first three definitions
 	definitionsArr = word.results.slice(0, 3);
 
+	// defines and enforces character limits on definitons
 	if (definitionsArr.length >= 2) {
 		if ((definitionsArr[0].definition + definitionsArr[1].definition).length > 205) {
 			definitionsArr = definitionsArr.slice(0, 1);
@@ -45,9 +57,13 @@ const createImageHTML = (word) => {
 			definitionsArr = definitionsArr.slice(0, 2);
 		}
 	}
+
+	// creates array of elements to substitute into html template
 	definitionsArrToDisplay = definitionsArr.map((definition) => {
 		return `<li><p><span>[<em>${definition.partOfSpeech}</em>]:</span> ${definition.definition}</p></li>`;
 	});
+
+	// returns object of html and css completed template with info provided
 	return {
 		html: `<div class="container">
         <h3><strong>WORD OF THE DAY - </strong>${days[date.getDay()]}, ${months[
