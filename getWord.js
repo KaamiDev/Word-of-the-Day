@@ -4,7 +4,7 @@ const getWord = async () => {
 	var options = {
 		headers: {
 			'x-rapidapi-host': 'wordsapiv1.p.rapidapi.com',
-			'x-rapidapi-key': 'eed735b6e3msh08dc4b792574629p17981ejsn05f067454afb',
+			'x-rapidapi-key': process.env.RAPIDAPI_KEY,
 			useQueryString: true
 		}
 	};
