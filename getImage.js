@@ -31,6 +31,7 @@ const createImageHTML = (word) => {
 	];
 
 	let days = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];
+	let colors = [ '#00A8FF', '#0D48D2', '#D20D69', '#3BD20D', '#FFA200', '#DD1BD7', '#882AE6' ];
 
 	definitionsArr = word.results.slice(0, 3);
 
@@ -63,7 +64,7 @@ const createImageHTML = (word) => {
     .container {
         width: 1060px;
         height: 518px;
-        border: 20px solid #0D48D2;
+        border: 20px solid ${colors[date.getDay()]};
         font-family: 'Open Sans';
         padding: 70px;
     }
@@ -78,13 +79,13 @@ const createImageHTML = (word) => {
         font-size: 100px;
         margin-top: 0;
         text-transform: uppercase;
-        color: #0D48D2;
+        color: ${colors[date.getDay()]};
         margin-bottom: 0;
     }
     h4 {
         font-size: 35px;
         font-weight: 600;
-        color: #0D48D2;
+        color: ${colors[date.getDay()]};
         margin-top: -10px;
     }
     h5 {
@@ -98,7 +99,7 @@ const createImageHTML = (word) => {
     }
     li {
         font-weight: bold;
-        color: #0D48D2;
+        color: ${colors[date.getDay()]};
     }
     p {
         font-weight: normal;
@@ -106,7 +107,7 @@ const createImageHTML = (word) => {
         color: #000
     }
     span {
-        color: #0D48D2;
+        color: ${colors[date.getDay()]};
         font-weight: 600;
     }`
 	};

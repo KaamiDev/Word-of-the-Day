@@ -18,7 +18,7 @@ const getWord = async () => {
 					options
 				)
 			);
-			if (word.word.indexOf(' ') >= 0 || (word.syllables === undefined && word.results[0].definition > 205)) {
+			if (word.word.indexOf(' ') >= 0 || (word.syllables === undefined || word.results[0].definition > 205)) {
 				continue;
 			} else {
 				return word;
