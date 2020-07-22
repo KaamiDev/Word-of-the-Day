@@ -7,14 +7,14 @@ const convertImage = require('./controllers/convertImage.js');
 const postTweet = require('./controllers/postTweet.js');
 
 // setup cron job to tweet a new word everyday at 12PM (server time)
-let job = new CronJob('0 12 * * *', function() {
+let job = new CronJob('0 4 * * *', function() {
 	// call make tweet function
 	makeTweet();
 });
 
 // start cron job
 job.start();
-console.log('Cron job started, running every day at 12PM...');
+console.log('Cron job started, running every day at 4PM...');
 
 // define make tweet function
 const makeTweet = async () => {
