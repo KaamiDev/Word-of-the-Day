@@ -33,6 +33,7 @@ const createImageHTML = (word) => {
 		'July',
 		'August',
 		'September',
+		'October',
 		'November',
 		'December'
 	];
